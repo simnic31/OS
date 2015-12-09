@@ -289,6 +289,7 @@ cmd_quit(int nargs, char **args)
 	return 0;
 }
 
+
 /*
  * Command for mounting a filesystem.
  */
@@ -459,6 +460,7 @@ static const char *testmenu[] = {
 	"[tt1] Thread test 1                 ",
 	"[tt2] Thread test 2                 ",
 	"[tt3] Thread test 3                 ",
+
 #if OPT_NET
 	"[net] Network test                  ",
 #endif
@@ -548,6 +550,7 @@ static struct {
 	{ "q",		cmd_quit },
 	{ "exit",	cmd_quit },
 	{ "halt",	cmd_quit },
+	{ "booty",  bootytest},
 
 #if OPT_SYNCHPROBS
 	/* in-kernel synchronization problem(s) */

@@ -1,4 +1,4 @@
-cscope 15 $HOME/os161/kern               0000325802
+cscope 15 $HOME/os161/kern               0000326046
 	@arch/mips/include/current.h
 
 30 #i‚de‡
@@ -7505,7 +7505,7 @@ _OPT_SYNCHPROBS_H_
 
 2 c⁄° 
 	gbuûdvîsi⁄
- = 3;
+ = 9;
 
 3 c⁄° 
 	gbuûdc⁄fig
@@ -34315,99 +34315,107 @@ bôm≠ã°
 queuëe°
 (, **);
 
-56 
+54 
+boŸyã°
+(
+«rgs
+, *
+¨gs
+[]);
+
+58 
 thªadã°
 (, **);
 
-57 
+59 
 thªadã°2
 (, **);
 
-58 
+60 
 thªadã°3
 (, **);
 
-59 
+61 
 £mã°
 (, **);
 
-60 
+62 
 lockã°
 (, **);
 
-61 
+63 
 cvã°
 (, **);
 
-63 #ifde‡
+65 #ifde‡
 UW
 
 
-65 
+67 
 uwlockã°1
 (, **);
 
-67 
+69 
 uwvm°©°e°
 (, **);
 
-71 
+73 
 f°e°
 (, **);
 
-72 
+74 
 ªad°ªss
 (, **);
 
-73 
+75 
 wrôe°ªss
 (, **);
 
-74 
+76 
 wrôe°ªss2
 (, **);
 
-75 
+77 
 ¸óã°ªss
 (, **);
 
-76 
+78 
 ¥ötfûe
 (, **);
 
-79 
+81 
 mÆlo˘e°
 (, **);
 
-80 
+82 
 mÆloc°ªss
 (, **);
 
-81 
+83 
 √âe°
 (, **);
 
-84 
+86 
 ru≈rogøm
 (*
 ¥og«me
 );
 
-87 
+89 
 míu
 (*
 ¨g°r
 );
 
 90 
+hñlo
+();
+
+93 
 kmaö
 (*
 boŸ°rög
 );
-
-92 
-hñlo
-();
 
 	@include/thread.h
 
@@ -40946,18 +40954,14 @@ p_lock
 >
 
 5 
-hñlo
-();
-
-7 
 	$hñlo
-() {
+(){
 
-8 
+6 
 	`k¥ötf
-("Hello World\n");
+("BOOTY BOOTY YEAH\n");
 
-9 
+7 
 	}
 }
 
@@ -41039,67 +41043,51 @@ hñlo
 	~"autoc⁄f.h
 "
 
-53 
+54 
 	~"›t-A0.h
 "
 
-55 #i‡
-OPT_A0
-
-
-56 
-hñlo
-();
-
-69 c⁄° 
+67 c⁄° 
 buûdvîsi⁄
 ;
 
-70 c⁄° 
+68 c⁄° 
 buûdc⁄fig
 [];
 
-75 c⁄° 
+73 c⁄° 
 	gh¨v¨d_c›yright
 [] =
 
-85 
+83 
 	$boŸ
 ()
 
-103 
-	`hñlo
-();
-
 104 
-	`hñlo
-();
-
-108 
 	`k¥ötf
 ("\n");
 
-109 
+105 
 	`k¥ötf
 ("OS/161 ba£ sy°em vîsi⁄ %s\n", 
 BASE_VERSION
 );
 
-110 
+106 
 	`k¥ötf
 ("%s", 
 h¨v¨d_c›yright
 );
 
-111 
+107 
 	`k¥ötf
 ("\n");
 
-113 
+109 
 	`k¥ötf
 ("Nikki's system version %s (%s #%d)\n",
 
-114 
+110 
 GROUP_VERSION
 , 
 buûdc⁄fig
@@ -41107,9 +41095,17 @@ buûdc⁄fig
 buûdvîsi⁄
 );
 
-115 
+111 
 	`k¥ötf
 ("\n");
+
+113 #i‡
+OPT_A0
+
+
+114 
+	`hñlo
+();
 
 118 
 	`øm_boŸ°øp
@@ -41939,33 +41935,33 @@ RB_POWEROFF
 	}
 }
 
-298 c⁄° *
+299 c⁄° *
 	m«me
 ;
 
-299 (*
+300 (*
 	mfunc
 )(c⁄° *
 	mdevi˚
 );
 
-300 } 
+301 } 
 	gmou¡èbÀ
 [] = {
 
-301 #i‡
+302 #i‡
 OPT_SFS
 
 
-302 { "sfs", 
+303 { "sfs", 
 sfs_mou¡
  },
 
-304 { 
+305 { 
 NULL
 , NULL }
 
-309 
+310 
 	$cmd_mou¡
 (
 «rgs
@@ -41973,55 +41969,55 @@ NULL
 ¨gs
 )
 
-311 *
+312 *
 f°y≥
 ;
 
-312 *
+313 *
 devi˚
 ;
 
-313 
+314 
 i
 ;
 
-315 i‡(
+316 i‡(
 «rgs
  != 3) {
 
-316 
+317 
 	`k¥ötf
 ("Usage: mount fstype device:\n");
 
-317  
+318  
 EINVAL
 ;
 
-320 
+321 
 f°y≥
  = 
 ¨gs
 [1];
 
-321 
+322 
 devi˚
  = 
 ¨gs
 [2];
 
-324 i‡(
+325 i‡(
 devi˚
 [
 	`°æí
 (device)-1]==':') {
 
-325 
+326 
 devi˚
 [
 	`°æí
 (device)-1] = 0;
 
-328 
+329 
 i
 =0; 
 mou¡èbÀ
@@ -42029,7 +42025,7 @@ mou¡èbÀ
 «me
 ; i++) {
 
-329 i‡(!
+330 i‡(!
 	`°rcmp
 (
 mou¡èbÀ
@@ -42041,7 +42037,7 @@ i
 f°y≥
 )) {
 
-330  
+331  
 mou¡èbÀ
 [
 i
@@ -42051,21 +42047,21 @@ i
 devi˚
 );
 
-333 
+334 
 	`k¥ötf
 ("Unknow¿fûesy°emÅy≥ %s\n", 
 f°y≥
 );
 
-334  
+335  
 EINVAL
 ;
 
-335 
+336 
 	}
 }
 
-339 
+340 
 	$cmd_unmou¡
 (
 «rgs
@@ -42073,51 +42069,51 @@ EINVAL
 ¨gs
 )
 
-341 *
+342 *
 devi˚
 ;
 
-343 i‡(
+344 i‡(
 «rgs
  != 2) {
 
-344 
+345 
 	`k¥ötf
 ("Usage: unmount device:\n");
 
-345  
+346  
 EINVAL
 ;
 
-348 
+349 
 devi˚
  = 
 ¨gs
 [1];
 
-351 i‡(
+352 i‡(
 devi˚
 [
 	`°æí
 (device)-1]==':') {
 
-352 
+353 
 devi˚
 [
 	`°æí
 (device)-1] = 0;
 
-355  
+356  
 	`vfs_unmou¡
 (
 devi˚
 );
 
-356 
+357 
 	}
 }
 
-368 
+369 
 	$cmd_boŸfs
 (
 «rgs
@@ -42125,51 +42121,51 @@ devi˚
 ¨gs
 )
 
-370 *
+371 *
 devi˚
 ;
 
-372 i‡(
+373 i‡(
 «rgs
  != 2) {
 
-373 
+374 
 	`k¥ötf
 ("Usage: bootfs device\n");
 
-374  
+375  
 EINVAL
 ;
 
-377 
+378 
 devi˚
  = 
 ¨gs
 [1];
 
-380 i‡(
+381 i‡(
 devi˚
 [
 	`°æí
 (device)-1]==':') {
 
-381 
+382 
 devi˚
 [
 	`°æí
 (device)-1] = 0;
 
-384  
+385  
 	`vfs_£tboŸfs
 (
 devi˚
 );
 
-385 
+386 
 	}
 }
 
-389 
+390 
 	$cmd_khóp°©s
 (
 «rgs
@@ -42177,23 +42173,23 @@ devi˚
 ¨gs
 )
 
-391 ()
+392 ()
 «rgs
 ;
 
-392 ()
+393 ()
 ¨gs
 ;
 
-394 
+395 
 	`khóp_¥öt°©s
 ();
 
-397 
+398 
 	}
 }
 
-405 
+406 
 	$showmíu
 (c⁄° *
 «me
@@ -42201,7 +42197,7 @@ devi˚
 x
 [])
 
-407 
+408 
 ˘
 , 
 hÆf
@@ -42209,17 +42205,17 @@ hÆf
 i
 ;
 
-409 
+410 
 	`k¥ötf
 ("\n");
 
-410 
+411 
 	`k¥ötf
 ("%s\n", 
 «me
 );
 
-412 
+413 
 i
 =
 ˘
@@ -42227,23 +42223,23 @@ i
 x
 [i]; i++) {
 
-413 
+414 
 ˘
 ++;
 
-415 
+416 
 hÆf
  = (
 ˘
 +1)/2;
 
-417 
+418 
 i
 =0; i<
 hÆf
 ; i++) {
 
-418 
+419 
 	`k¥ötf
 (" %-36s", 
 x
@@ -42251,7 +42247,7 @@ x
 i
 ]);
 
-419 i‡(
+420 i‡(
 i
 +
 hÆf
@@ -42259,7 +42255,7 @@ hÆf
 ˘
 ) {
 
-420 
+421 
 	`k¥ötf
 ("%s", 
 x
@@ -42269,27 +42265,27 @@ i
 hÆf
 ]);
 
-422 
-	`k¥ötf
-("\n");
-
-425 
+423 
 	`k¥ötf
 ("\n");
 
 426 
+	`k¥ötf
+("\n");
+
+427 
 	}
 }
 
-428 c⁄° *
+429 c⁄° *
 	g›smíu
 [] = {
 
-440 
+441 
 NULL
 
 
-445 
+446 
 	$cmd_›smíu
 (
 n
@@ -42297,41 +42293,41 @@ n
 a
 )
 
-447 ()
+448 ()
 n
 ;
 
-448 ()
+449 ()
 a
 ;
 
-450 
+451 
 	`showmíu
 ("OS/161 o≥øti⁄†míu", 
 ›smíu
 );
 
-452 
+453 
 	}
 }
 
-454 c⁄° *
+455 c⁄° *
 	gã°míu
 [] = {
 
-462 #i‡
+465 #i‡
 OPT_NET
 
 
-468 #ifde‡
+471 #ifde‡
 UW
 
 
-477 
+480 
 NULL
 
 
-482 
+485 
 	$cmd_ã°míu
 (
 n
@@ -42339,53 +42335,53 @@ n
 a
 )
 
-484 ()
+487 ()
 n
 ;
 
-485 ()
+488 ()
 a
 ;
 
-487 
+490 
 	`showmíu
 ("OS/161Åe°†míu", 
 ã°míu
 );
 
-488 
+491 
 	`k¥ötf
 (" (1) TheseÅests will fail until you finishÅhe "
 
-490 
+493 
 	`k¥ötf
 (" (4) TheseÅests may fail until you finishÅhe "
 
-492 
+495 
 	`k¥ötf
 ("\n");
 
-495 
+498 
 	}
 }
 
-497 c⁄° *
+500 c⁄° *
 	gmaömíu
 [] = {
 
-500 #i‡
+503 #i‡
 OPT_SYNCHPROBS
 
 
-502 #ifde‡
+505 #ifde‡
 UW
 
 
-508 
+511 
 NULL
 
 
-513 
+516 
 	$cmd_maömíu
 (
 n
@@ -42393,29 +42389,29 @@ n
 a
 )
 
-515 ()
+518 ()
 n
 ;
 
-516 ()
+519 ()
 a
 ;
 
-518 
+521 
 	`showmíu
 ("OS/161 kî√»míu", 
 maömíu
 );
 
-520 
+523 
 	}
 }
 
-527 c⁄° *
+530 c⁄° *
 	m«me
 ;
 
-528 (*
+531 (*
 	mfunc
 )(
 	m«rgs
@@ -42423,193 +42419,197 @@ maömíu
 	m¨gs
 );
 
-529 } 
+532 } 
 	gcmdèbÀ
 [] = {
 
-531 { "?", 
+534 { "?", 
 cmd_maömíu
  },
 
-532 { "h", 
+535 { "h", 
 cmd_maömíu
  },
 
-533 { "hñp", 
+536 { "hñp", 
 cmd_maömíu
  },
 
-534 { "?o", 
+537 { "?o", 
 cmd_›smíu
  },
 
-535 { "?t", 
+538 { "?t", 
 cmd_ã°míu
  },
 
-538 { "s", 
+541 { "s", 
 cmd_shñl
  },
 
-539 { "p", 
+542 { "p", 
 cmd_¥og
  },
 
-540 { "mou¡", 
+543 { "mou¡", 
 cmd_mou¡
  },
 
-541 { "unmou¡", 
+544 { "unmou¡", 
 cmd_unmou¡
  },
 
-542 { "boŸfs", 
+545 { "boŸfs", 
 cmd_boŸfs
  },
 
-543 { "pf", 
+546 { "pf", 
 ¥ötfûe
  },
 
-544 { "cd", 
+547 { "cd", 
 cmd_chdú
  },
 
-545 { "pwd", 
+548 { "pwd", 
 cmd_pwd
  },
 
-546 { "sync", 
+549 { "sync", 
 cmd_sync
  },
 
-547 { "∑nic", 
+550 { "∑nic", 
 cmd_∑nic
  },
 
-548 { "q", 
+551 { "q", 
 cmd_quô
  },
 
-549 { "exô", 
+552 { "exô", 
 cmd_quô
  },
 
-550 { "hÆt", 
+553 { "hÆt", 
 cmd_quô
  },
 
-552 #i‡
+555 #i‡
 OPT_SYNCHPROBS
 
 
-554 { "•1", 
+557 { "•1", 
 whÆem©ög
  },
 
-555 #ifde‡
+558 #ifde‡
 UW
 
 
-556 { "•2", 
+559 { "•2", 
 ˇtmou£
  },
 
-561 { "kh", 
+564 { "kh", 
 cmd_khóp°©s
  },
 
-564 { "©", 
+567 { "boŸy", 
+boŸyã°
+ },
+
+568 { "©", 
 ¨øyã°
  },
 
-565 { "bt", 
+569 { "bt", 
 bôm≠ã°
  },
 
-566 { "km1", 
+570 { "km1", 
 mÆlo˘e°
  },
 
-567 { "km2", 
+571 { "km2", 
 mÆloc°ªss
  },
 
-568 #i‡
+572 #i‡
 OPT_NET
 
 
-569 { "√t", 
+573 { "√t", 
 √âe°
  },
 
-571 { "â1", 
+575 { "â1", 
 thªadã°
  },
 
-572 { "â2", 
+576 { "â2", 
 thªadã°2
  },
 
-573 { "â3", 
+577 { "â3", 
 thªadã°3
  },
 
-574 { "sy1", 
+578 { "sy1", 
 £mã°
  },
 
-577 { "sy2", 
+581 { "sy2", 
 lockã°
  },
 
-578 { "sy3", 
+582 { "sy3", 
 cvã°
  },
 
-579 #ifde‡
+583 #ifde‡
 UW
 
 
-580 { "uw1", 
+584 { "uw1", 
 uwlockã°1
  },
 
-581 { "uw2", 
+585 { "uw2", 
 uwvm°©°e°
  },
 
-585 { "fs1", 
+589 { "fs1", 
 f°e°
  },
 
-586 { "fs2", 
+590 { "fs2", 
 ªad°ªss
  },
 
-587 { "fs3", 
+591 { "fs3", 
 wrôe°ªss
  },
 
-588 { "fs4", 
+592 { "fs4", 
 wrôe°ªss2
  },
 
-589 { "fs5", 
+593 { "fs5", 
 ¸óã°ªss
  },
 
-591 { 
+595 { 
 NULL
 , NULL }
 
-599 
+603 
 	$cmd_di•©ch
 (*
 cmd
 )
 
-601 
+605 
 time_t
  
 bef‹e£cs
@@ -42619,7 +42619,7 @@ a·î£cs
 £cs
 ;
 
-602 
+606 
 uöt32_t
  
 bef‹í£cs
@@ -42629,31 +42629,31 @@ a·în£cs
 n£cs
 ;
 
-603 *
+607 *
 ¨gs
 [
 MAXMENUARGS
 ];
 
-604 
+608 
 «rgs
 =0;
 
-605 *
+609 *
 w‹d
 ;
 
-606 *
+610 *
 c⁄ãxt
 ;
 
-607 
+611 
 i
 , 
 ªsu…
 ;
 
-609 
+613 
 w‹d
  = 
 	`°πok_r
@@ -42663,13 +42663,13 @@ cmd
 c⁄ãxt
 );
 
-610 
+614 
 w‹d
  !
 NULL
 ;
 
-611 
+615 
 w‹d
  = 
 	`°πok_r
@@ -42679,21 +42679,21 @@ NULL
 c⁄ãxt
 )) {
 
-613 i‡(
+617 i‡(
 «rgs
  >
 MAXMENUARGS
 ) {
 
-614 
+618 
 	`k¥ötf
 ("CommandÜine hasÅoo many words\n");
 
-615  
+619  
 E2BIG
 ;
 
-617 
+621 
 ¨gs
 [
 «rgs
@@ -42701,11 +42701,11 @@ E2BIG
 w‹d
 ;
 
-620 i‡(
+624 i‡(
 «rgs
 ==0) {
 
-624 
+628 
 i
 =0; 
 cmdèbÀ
@@ -42713,7 +42713,7 @@ cmdèbÀ
 «me
 ; i++) {
 
-625 i‡(*
+629 i‡(*
 cmdèbÀ
 [
 i
@@ -42725,7 +42725,7 @@ i
 ¨gs
 [0], cmdtable[i].name)) {
 
-626 
+630 
 	`KASSERT
 (
 cmdèbÀ
@@ -42737,7 +42737,7 @@ func
 NULL
 );
 
-628 
+632 
 	`gëtime
 (&
 bef‹e£cs
@@ -42745,7 +42745,7 @@ bef‹e£cs
 bef‹í£cs
 );
 
-630 
+634 
 ªsu…
  = 
 cmdèbÀ
@@ -42759,7 +42759,7 @@ i
 ¨gs
 );
 
-632 
+636 
 	`gëtime
 (&
 a·î£cs
@@ -42767,7 +42767,7 @@ a·î£cs
 a·în£cs
 );
 
-633 
+637 
 	`gëöãrvÆ
 (
 bef‹e£cs
@@ -42775,49 +42775,49 @@ bef‹e£cs
 bef‹í£cs
 ,
 
-634 
+638 
 a·î£cs
 , 
 a·în£cs
 ,
 
-635 &
+639 &
 £cs
 , &
 n£cs
 );
 
-637 
+641 
 	`k¥ötf
 ("OperationÅook %lu.%09lu seconds\n",
 
-638 (Ë
+642 (Ë
 £cs
 ,
 
-639 (Ë
+643 (Ë
 n£cs
 );
 
-641  
+645  
 ªsu…
 ;
 
-645 
+649 
 	`k¥ötf
 ("%s: Comm™dÇŸ found\n", 
 ¨gs
 [0]);
 
-646  
+650  
 EINVAL
 ;
 
-647 
+651 
 	}
 }
 
-658 
+662 
 	$míu_execuã
 (*
 löe
@@ -42825,19 +42825,19 @@ löe
 ißrgs
 )
 
-660 *
+664 *
 comm™d
 ;
 
-661 *
+665 *
 c⁄ãxt
 ;
 
-662 
+666 
 ªsu…
 ;
 
-664 
+668 
 comm™d
  = 
 	`°πok_r
@@ -42847,13 +42847,13 @@ löe
 c⁄ãxt
 );
 
-665 
+669 
 comm™d
  !
 NULL
 ;
 
-666 
+670 
 comm™d
  = 
 	`°πok_r
@@ -42863,17 +42863,17 @@ NULL
 c⁄ãxt
 )) {
 
-668 i‡(
+672 i‡(
 ißrgs
 ) {
 
-669 
+673 
 	`k¥ötf
 ("OS/161 kî√l: %s\n", 
 comm™d
 );
 
-672 
+676 
 ªsu…
  = 
 	`cmd_di•©ch
@@ -42881,11 +42881,11 @@ comm™d
 comm™d
 );
 
-673 i‡(
+677 i‡(
 ªsu…
 ) {
 
-674 
+678 
 	`k¥ötf
 ("Míu comm™d faûed: %s\n", 
 	`°ªº‹
@@ -42893,51 +42893,51 @@ comm™d
 ªsu…
 ));
 
-675 i‡(
+679 i‡(
 ißrgs
 ) {
 
-676 
+680 
 	`∑nic
 ("FailureÖrocessing kernelárguments\n");
 
-680 
+684 
 	}
 }
 
-700 
+704 
 	$míu
 (*
 ¨gs
 )
 
-702 
+706 
 buf
 [64];
 
-704 
+708 
 	`míu_execuã
 (
 ¨gs
 , 1);
 
-707 
+711 
 	`k¥ötf
 ("OS/161 kernel [? for menu]: ");
 
-708 
+712 
 	`kgës
 (
 buf
 , (buf));
 
-709 
+713 
 	`míu_execuã
 (
 buf
 , 0);
 
-711 
+715 
 	}
 }
 
@@ -47346,6 +47346,50 @@ i
 ("BitmapÅest complete\n");
 
 106 
+	}
+}
+
+	@test/bootytest.c
+
+5 
+	~<ty≥s.h
+>
+
+6 
+	~<lib.h
+>
+
+7 
+	~<ã°.h
+>
+
+9 
+	$boŸyã°
+ (
+«rgs
+, *
+¨gs
+[])
+
+11 ()
+«rgs
+;
+
+12 ()
+¨gs
+;
+
+14 
+	`k¥ötf
+("YouÅy≥d: %s\n", 
+¨gs
+[1]);
+
+16 
+	`k¥ötf
+("It got da booty. \n");
+
+19 
 	}
 }
 
@@ -66791,8 +66835,8 @@ disk_ªads
 1
 .
 0
-186
-3782
+187
+3799
 arch/mips/include/current.h
 arch/mips/include/elf.h
 arch/mips/include/kern/endian.h
@@ -66956,6 +67000,7 @@ syscall/runprogram.c
 syscall/time_syscalls.c
 test/arraytest.c
 test/bitmaptest.c
+test/bootytest.c
 test/fstest.c
 test/malloctest.c
 test/nettest.c

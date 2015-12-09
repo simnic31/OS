@@ -3,5 +3,5 @@
 #include <test.h>
 
 void hello(){
-	kprintf("Hello World\n");
+	kprintf("BOOTY BOOTY YEAH\n");
 }
