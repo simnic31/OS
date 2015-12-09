@@ -29,24 +29,25 @@ $
 # Registers:
 
 # File marks:
-'0  15  17  ~/os161/kern/startup/bootytest.c
-'1  54  34  ~/os161/kern/include/test.h
-'2  455  32  ~/os161/kern/startup/menu.c
-'3  34  0  ~/os161/kern/conf/ASST0
-'4  455  0  ~/os161/kern/conf/conf.kern
-'5  359  0  ~/os161/kern/conf/conf.kern
-'6  389  20  ~/os161/kern/conf/conf.kern
-'7  17  2  ~/os161/kern/test/bootytest.c
-'8  1  0  ~/os161/kern/test/bootytest.c
-'9  130  0  ~/os161/kern/startup/menu.c
+'0  472  39  ~/os161/kern/startup/menu.c
+'1  15  17  ~/os161/kern/startup/bootytest.c
+'2  54  34  ~/os161/kern/include/test.h
+'3  455  32  ~/os161/kern/startup/menu.c
+'4  34  0  ~/os161/kern/conf/ASST0
+'5  455  0  ~/os161/kern/conf/conf.kern
+'6  359  0  ~/os161/kern/conf/conf.kern
+'7  389  20  ~/os161/kern/conf/conf.kern
+'8  17  2  ~/os161/kern/test/bootytest.c
+'9  1  0  ~/os161/kern/test/bootytest.c
 
 # Jumplist (newest first):
+-'  472  39  ~/os161/kern/startup/menu.c
+-'  1  0  ~/os161/kern/startup/menu.c
 -'  15  17  ~/os161/kern/startup/bootytest.c
 -'  1  0  ~/os161/kern/startup/bootytest.c
 -'  54  34  ~/os161/kern/include/test.h
 -'  1  0  ~/os161/kern/include/test.h
 -'  455  32  ~/os161/kern/startup/menu.c
--'  1  0  ~/os161/kern/startup/menu.c
 -'  34  0  ~/os161/kern/conf/ASST0
 -'  1  0  ~/os161/kern/conf/ASST0
 -'  455  0  ~/os161/kern/conf/conf.kern
@@ -64,11 +65,11 @@ $
 -'  144  0  ~/os161/kern/test/arraytest.c
 -'  1  0  ~/os161/kern/test/arraytest.c
 -'  112  0  ~/os161/kern/test/arraytest.c
--'  525  0  ~/os161/kern/startup/menu.c
+-'  526  0  ~/os161/kern/startup/menu.c
 -'  222  0  ~/os161/kern/startup/main.c
 -'  1  0  ~/os161/kern/startup/main.c
 -'  143  0  ~/os161/kern/test/arraytest.c
--'  583  0  ~/os161/kern/startup/menu.c
+-'  584  0  ~/os161/kern/startup/menu.c
 -'  54  0  ~/os161/kern/startup/menu.c
 -'  8  0  ~/os161/root/my-testbin
 -'  6  25  ~/os161/kern/startup/hello.c
@@ -138,10 +139,29 @@ $
 -'  1  4  ~/butts.txt
 -'  1  4  ~/butts.txt
 -'  143  0  ~/os161/kern/compile/ASST0
--'  1  4  ~/butts.txt
--'  1  4  ~/butts.txt
 
 # History of marks within files (newest to oldest):
+
+> ~/os161/kern/startup/menu.c
+	"	472	39
+	^	472	40
+	.	463	39
+	+	441	30
+	+	290	125
+	+	553	22
+	+	555	0
+	+	571	47
+	+	290	1
+	+	455	72
+	+	464	0
+	+	567	48
+	+	572	0
+	+	567	31
+	+	455	52
+	+	568	0
+	+	554	23
+	+	456	0
+	+	463	39
 
 > ~/os161/kern/startup/bootytest.c
 	"	15	17
@@ -166,26 +186,6 @@ $
 	+	56	18
 	+	55	0
 	+	54	34
-
-> ~/os161/kern/startup/menu.c
-	"	455	32
-	^	455	33
-	.	456	0
-	+	441	30
-	+	290	125
-	+	552	22
-	+	554	0
-	+	570	47
-	+	290	1
-	+	455	72
-	+	463	0
-	+	566	48
-	+	571	0
-	+	566	31
-	+	455	52
-	+	567	0
-	+	553	23
-	+	456	0
 
 > ~/os161/kern/conf/ASST0
 	"	34	0
