@@ -52,12 +52,18 @@ int arraytest(int, char **);
 int bitmaptest(int, char **);
 int queuetest(int, char **);
 int bootytest(int nargs, char *argv[]);
+void threadUse(void*, unsigned long);
+void threadUse2(void*, unsigned long);
+int test1(int, char**);
+int test2(int, char**);
+int test3(int, char**);
 
 /* thread tests */
 
 int threadtest(int, char **);
 int threadtest2(int, char **);
 int threadtest3(int, char **);
+int threadfun(int);
 int semtest(int, char **);
 int locktest(int, char **);
 int cvtest(int, char **);
