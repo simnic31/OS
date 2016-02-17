@@ -8,14 +8,16 @@
 #include <synch.h>
 #include <test.h>
 
-#define NTHREADS  9
+#define NTHREADS  12
 
 static struct semaphore *tsem = NULL;
-static struct semaphore *tsem2 = NULL;
+//static struct semaphore *tsem2 = NULL;
+static struct lock* tlock = NULL;
+
 
 static
 void
-init_sem(void)
+init_items(void)
 {
 	if (tsem==NULL) {
 		tsem = sem_create("tsem", 0);
@@ -24,12 +26,14 @@ init_sem(void)
 		}
 	}
 
-	if (tsem2==NULL) {
-		tsem2 = sem_create("tsem2", 1);
-		if (tsem2 == NULL) {
-			panic("threadfun: sem_create failed\n");
+	if (tlock == NULL) {
+		tlock = lock_create("tlock");
+		if (tlock == NULL){
+			panic("threadfun: lock_create failed\n");
 		}
 	}
+
+	
 		
 }
 
@@ -39,15 +43,30 @@ static int counter;
 int threadfun(int type)
 {	
 	(void)type;
-	init_sem();
+	init_items();
 	counter = 0;
 	char name[16];
 	int i, result;
 
 	for (i=0; i<12; i++) {
+		if(type == 1){
 		snprintf(name, sizeof(name), "threadtest%d", i);
 		result = thread_fork(name, NULL,
-				     threadUse2, NULL, i);
+				     unsafeCounter, NULL, i);
+	}
+
+	if(type==2){
+		snprintf(name, sizeof(name), "threadtest%d", i);
+		result = thread_fork(name, NULL,
+				lockCounter, NULL, i);
+	} 
+
+	if(type==3){
+		snprintf(name, sizeof(name), "threadtest%d", i);
+		result = thread_fork(name, NULL,
+				spinLockCounter, NULL, i);
+	}
+
 		if (result) {
 			panic("threadtest: thread_fork failed %s)\n", 
 			      strerror(result));
@@ -60,14 +79,15 @@ int threadfun(int type)
 	}
 	
 	kprintf("%d", counter);
-	counter = counter -119999;
+	counter = counter -9;
 	counter = counter + '0';
 
 	return 0;
 }
 
+
 void
-threadUse(void *junk, unsigned long num)
+unsafeCounter(void *junk, unsigned long num)
 {
 	int ch = '0' + num;
 	for(int i; i < 10000; i++){
@@ -81,21 +101,40 @@ threadUse(void *junk, unsigned long num)
 
 
 void
-threadUse2(void *junk, unsigned long num)
+lockCounter(void *junk, unsigned long num)
 {
 	int ch = '0' + num;
 	//(void)ch;
 	//(void)junk;
 
 	for (int i; i<10000; i++){
-		P(tsem2);
+		//P(tsem2);
+		lock_acquire(tlock);
 		counter++;
+		lock_release(tlock);
 		(void)junk;
 		(void)ch;
-		V(tsem2);
+		//V(tsem2);
+		
 	}
 	V(tsem);
 }
+
+void
+spinLockCounter(void *junk, unsigned long num)
+{
+	int ch = '0' + num;
+
+	for (int i; i<10000; i++){
+		spinlock_acquire(&tlock->lk_spinlock);
+		counter++;
+		spinlock_release(&tlock->lk_spinlock);
+		(void)ch;
+		(void)junk;
+	}
+	V(tsem);
+}
+
 
 
 int test1(int nargs, char **args)
@@ -103,8 +142,8 @@ int test1(int nargs, char **args)
 	(void) nargs;
 	(void) args;
 
-	init_sem();
-	kprintf("Starting thread test...\n");
+	init_items();
+	kprintf("Starting unsafe thread test...\n");
 	threadfun(1);
 	kprintf("\nTest finished.\n");
 
@@ -116,8 +155,8 @@ int test2(int nargs, char **args)
 	(void) nargs;
 	(void) args;
 
-	 init_sem();
-	 kprintf("Starting thread test...\n");
+	 init_items();
+	 kprintf("Starting locked thread test...\n");
 	 threadfun(2);
 	 kprintf("\nTest finished.\n");
 
@@ -129,8 +168,8 @@ int test3(int nargs, char **args)
 	(void) nargs;
 	(void) args;
 
-	init_sem();
-	kprintf("Starting thread test...\n");
+	init_items();
+	kprintf("Starting spinlock thread test...\n");
 	threadfun(3);
 	kprintf("\nTest finished.\n");
 

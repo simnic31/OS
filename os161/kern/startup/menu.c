@@ -460,9 +460,6 @@ static const char *testmenu[] = {
 	"[tt1] Thread test 1                 ",
 	"[tt2] Thread test 2                 ",
 	"[tt3] Thread test 3                 ",
-	"[test1] test1              		    ",
-	"[test2] test2								 ",
-	"[test3] test3								 ",
 #if OPT_NET
 	"[net] Network test                  ",
 #endif
@@ -478,6 +475,9 @@ static const char *testmenu[] = {
 	"[fs3] FS write stress       (4)     ",
 	"[fs4] FS write stress 2     (4)     ",
 	"[fs5] FS create stress      (4)     ",
+	"[test1] Unsafe counter              ",
+	"[test2] Lock counter                ",
+	"[test3] Spinlock counter            ",
 	NULL
 };
 
