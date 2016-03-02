@@ -41,6 +41,7 @@ void sys__exit(int exitcode) {
   /* detach this thread from its process */
   /* note: curproc cannot be used after this call */
   
+  proc_remthread(curthread);
 
   /* if this is the last user process in the system, proc_destroy()
      will wake up the kernel menu thread */
@@ -71,8 +72,8 @@ sys_fork(struct trapframe *tf, pid_t *retval){
 	struct trapframe *temp_tf;
 	int err;
 	char name[16];	
-
-	DEBUG(DB_SYSCALL, "Syscall: sys_fork()\n");
+	//for debugging
+	//DEBUG(DB_SYSCALL, "Syscall: sys_fork()\n");
 
 	temp_tf = kmalloc(sizeof(struct trapframe));
 	*temp_tf = *tf;
