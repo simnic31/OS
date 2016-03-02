@@ -1,4 +1,4 @@
-cscope 15 $HOME/os161               0000705643
+cscope 15 $HOME/os161               0000706573
 	@build/install/hostinclude/hostcompat.h
 
 31 
@@ -19939,7 +19939,7 @@ _OPT_SYNCHPROBS_H_
 
 2 c⁄° 
 	gbuûdvîsi⁄
- = 1;
+ = 6;
 
 3 c⁄° 
 	gbuûdc⁄fig
@@ -21953,7 +21953,7 @@ _OPT_SYNCHPROBS_H_
 
 2 c⁄° 
 	gbuûdvîsi⁄
- = 3;
+ = 9;
 
 3 c⁄° 
 	gbuûdc⁄fig
@@ -48703,11 +48703,23 @@ u£r_£c⁄ds
 u£r_«no£c⁄ds
 );
 
-61 #ifde‡
+61 
+sys_f‹k
+(
+å≠‰ame
+* 
+tf
+, 
+pid_t
+* 
+ªtvÆ
+);
+
+63 #ifde‡
 UW
 
 
-62 
+64 
 sys_wrôe
 (
 fdesc
@@ -48721,13 +48733,13 @@ nbyãs
 ªtvÆ
 );
 
-63 
+65 
 sys__exô
 (
 exôcode
 );
 
-64 
+66 
 sys_gëpid
 (
 pid_t
@@ -48735,7 +48747,7 @@ pid_t
 ªtvÆ
 );
 
-65 
+67 
 sys_waôpid
 (
 pid_t
@@ -60577,13 +60589,13 @@ e_íåy
 exôcode
 ) {
 
-18 
+20 
 addr•a˚
  *
 as
 ;
 
-19 
+21 
 ¥oc
  *
 p
@@ -60591,11 +60603,11 @@ p
 cuΩroc
 ;
 
-22 ()
+24 ()
 exôcode
 ;
 
-24 
+26 
 	`DEBUG
 (
 DB_SYSCALL
@@ -60603,7 +60615,7 @@ DB_SYSCALL
 exôcode
 );
 
-26 
+28 
 	`KASSERT
 (
 cuΩroc
@@ -60613,11 +60625,11 @@ p_addr•a˚
 NULL
 );
 
-27 
+29 
 	`as_dó˘iv©e
 ();
 
-35 
+37 
 as
  = 
 	`cuΩroc_£ès
@@ -60625,37 +60637,81 @@ as
 NULL
 );
 
-36 
+38 
 	`as_de°roy
 (
 as
 );
 
-40 
+42 
 	`¥oc_ªmthªad
 (
 cuπhªad
 );
 
-44 
+46 
 	`¥oc_de°roy
 (
 p
 );
 
-46 
+48 
 	`thªad_exô
 ();
 
-48 
+50 
 	`∑nic
 ("return fromÅhread_exit in sys_exit\n");
 
-49 
+51 
 	}
 }
 
 54 
+	$sys_f‹k
+(
+å≠‰ame
+* 
+tf
+, 
+pid_t
+* 
+ªtvÆ
+){
+
+74 
+	`k¥ötf
+("parent finallyÜeaving sys_fork\n");
+
+76 
+	}
+}
+
+80 
+	$u¥oc_thªad
+(*
+ãmp_å
+, 
+k
+){
+
+81 ()
+k
+;
+
+82 
+	`k¥ötf
+("Child - I made itÅoÅhe child user uproc_thread\n");
+
+83 
+	`thªad_exô
+();
+
+84 
+	}
+}
+
+89 
 	$sys_gëpid
 (
 pid_t
@@ -60663,15 +60719,15 @@ pid_t
 ªtvÆ
 )
 
-58 *
+93 *
 ªtvÆ
  = 1;
 
-60 
+95 
 	}
 }
 
-65 
+100 
 	$sys_waôpid
 (
 pid_t
@@ -60679,43 +60735,43 @@ pid_t
 pid
 ,
 
-66 
+101 
 u£Ωå_t
  
 °©us
 ,
 
-67 
+102 
 ›ti⁄s
 ,
 
-68 
+103 
 pid_t
  *
 ªtvÆ
 )
 
-70 
+105 
 exô°©us
 ;
 
-71 
+106 
 ªsu…
 ;
 
-82 i‡(
+117 i‡(
 ›ti⁄s
  != 0) {
 
-83 (
+118 (
 EINVAL
 );
 
-86 
+121 
 exô°©us
  = 0;
 
-87 
+122 
 ªsu…
  = 
 	`c›yout
@@ -60725,21 +60781,21 @@ exô°©us
 °©us
 ,());
 
-88 i‡(
+123 i‡(
 ªsu…
 ) {
 
-89 (
+124 (
 ªsu…
 );
 
-91 *
+126 *
 ªtvÆ
  = 
 pid
 ;
 
-93 
+128 
 	}
 }
 
@@ -65379,99 +65435,119 @@ lock
 NULL
 ;
 
-20 
+19 
+	$˛ónôems
+()
+
+21 
+	`£m_de°roy
+(
+t£m
+);
+
+22 
+	`lock_de°roy
+(
+éock
+);
+
+23 
+	}
+}
+
+27 
 	$öô_ôems
 ()
 
-22 i‡(
+29 i‡(
 t£m
 ==
 NULL
 ) {
 
-23 
+30 
 t£m
  = 
 	`£m_¸óã
 ("tsem", 0);
 
-24 i‡(
+31 i‡(
 t£m
  =
 NULL
 ) {
 
-25 
+32 
 	`∑nic
 ("threadfun: sem_create failed\n");
 
-29 i‡(
+36 i‡(
 éock
  =
 NULL
 ) {
 
-30 
+37 
 éock
  = 
 	`lock_¸óã
 ("tlock");
 
-31 i‡(
+38 i‡(
 éock
  =
 NULL
 ){
 
-32 
+39 
 	`∑nic
 ("threadfun:Üock_create failed\n");
 
-38 
+45 
 	}
 }
 
-40 
+47 
 	gcou¡î
 ;
 
-43 
+50 
 	$thªadfun
 (
 ty≥
 )
 
-45 ()
+52 ()
 ty≥
 ;
 
-46 
+53 
 	`öô_ôems
 ();
 
-47 
+54 
 cou¡î
  = 0;
 
-48 
+55 
 «me
 [16];
 
-49 
+56 
 i
 , 
 ªsu…
 ;
 
-51 
+58 
 i
 =0; i<12; i++) {
 
-52 if(
+59 if(
 ty≥
  == 1){
 
-53 
+60 
 	`¢¥ötf
 (
 «me
@@ -65479,7 +65555,7 @@ ty≥
 i
 );
 
-54 
+61 
 ªsu…
  = 
 	`thªad_f‹k
@@ -65489,7 +65565,7 @@ i
 NULL
 ,
 
-55 
+62 
 unß„Cou¡î
 , 
 NULL
@@ -65497,11 +65573,11 @@ NULL
 i
 );
 
-58 if(
+65 if(
 ty≥
 ==2){
 
-59 
+66 
 	`¢¥ötf
 (
 «me
@@ -65509,7 +65585,7 @@ ty≥
 i
 );
 
-60 
+67 
 ªsu…
  = 
 	`thªad_f‹k
@@ -65519,7 +65595,7 @@ i
 NULL
 ,
 
-61 
+68 
 lockCou¡î
 , 
 NULL
@@ -65527,11 +65603,11 @@ NULL
 i
 );
 
-64 if(
+71 if(
 ty≥
 ==3){
 
-65 
+72 
 	`¢¥ötf
 (
 «me
@@ -65539,7 +65615,7 @@ ty≥
 i
 );
 
-66 
+73 
 ªsu…
  = 
 	`thªad_f‹k
@@ -65549,7 +65625,7 @@ i
 NULL
 ,
 
-67 
+74 
 •öLockCou¡î
 , 
 NULL
@@ -65557,49 +65633,53 @@ NULL
 i
 );
 
-70 i‡(
+77 i‡(
 ªsu…
 ) {
 
-71 
+78 
 	`∑nic
 ("threadtest:Åhread_fork failed %s)\n",
 
-72 
+79 
 	`°ªº‹
 (
 ªsu…
 ));
 
-77 
+84 
 i
 =0; i<12; i++) {
 
-78 
+85 
 	`P
 (
 t£m
 );
 
-81 
+87 
+	`˛ónôems
+();
+
+88 
 	`k¥ötf
 ("%d", 
 cou¡î
 );
 
-82 
+89 
 cou¡î
  = counter -9;
 
-83 
+90 
 cou¡î
  = counter + '0';
 
-86 
+93 
 	}
 }
 
-90 
+97 
 	$unß„Cou¡î
 (*
 junk
@@ -65607,39 +65687,39 @@ junk
 num
 )
 
-92 
+99 
 ch
  = '0' + 
 num
 ;
 
-93 
+100 
 i
 ; i < 10000; i++){
 
-94 
+101 
 cou¡î
 ++;
 
-95 ()
+102 ()
 junk
 ;
 
-96 (Ë
+103 (Ë
 ch
 ;
 
-98 
+105 
 	`V
 (
 t£m
 );
 
-100 
+107 
 	}
 }
 
-104 
+111 
 	$lockCou¡î
 (*
 junk
@@ -65647,51 +65727,55 @@ junk
 num
 )
 
-106 
+113 
 ch
  = '0' + 
 num
 ;
 
-110 
+117 
 i
 ; i<10000; i++){
 
-112 
+119 
 	`lock_acquúe
 (
 éock
 );
 
-113 
+120 
 cou¡î
 ++;
 
-114 
+121 
 	`lock_ªÀa£
 (
 éock
 );
 
-115 ()
+122 ()
 junk
 ;
 
-116 ()
+123 ()
 ch
 ;
 
-120 
+127 
 	`V
 (
 t£m
 );
 
-121 
+128 
+	`thªad_exô
+();
+
+129 
 	}
 }
 
-124 
+132 
 	$•öLockCou¡î
 (*
 junk
@@ -65699,17 +65783,17 @@ junk
 num
 )
 
-126 
+134 
 ch
  = '0' + 
 num
 ;
 
-128 
+136 
 i
 ; i<10000; i++){
 
-129 
+137 
 	`•ölock_acquúe
 (&
 éock
@@ -65717,11 +65801,11 @@ i
 lk_•ölock
 );
 
-130 
+138 
 cou¡î
 ++;
 
-131 
+139 
 	`•ölock_ªÀa£
 (&
 éock
@@ -65729,25 +65813,25 @@ cou¡î
 lk_•ölock
 );
 
-132 ()
+140 ()
 ch
 ;
 
-133 ()
+141 ()
 junk
 ;
 
-135 
+143 
 	`V
 (
 t£m
 );
 
-136 
+144 
 	}
 }
 
-140 
+148 
 	$ã°1
 (
 «rgs
@@ -65755,35 +65839,41 @@ t£m
 ¨gs
 )
 
-142 (Ë
+150 (Ë
 «rgs
 ;
 
-143 (Ë
+151 (Ë
 ¨gs
 ;
 
-145 
+153 
 	`öô_ôems
 ();
 
-146 
+154 
 	`k¥ötf
 ("Starting unsafeÅhreadÅest...\n");
 
-147 
+155 
 	`thªadfun
 (1);
 
-148 
+156 
 	`k¥ötf
 ("\nTest finished.\n");
 
-151 
+157 
+	`£m_de°roy
+(
+t£m
+);
+
+160 
 	}
 }
 
-153 
+162 
 	$ã°2
 (
 «rgs
@@ -65791,35 +65881,41 @@ t£m
 ¨gs
 )
 
-155 (Ë
+164 (Ë
 «rgs
 ;
 
-156 (Ë
+165 (Ë
 ¨gs
 ;
 
-158 
+167 
 	`öô_ôems
 ();
 
-159 
+168 
 	`k¥ötf
 ("StartingÜockedÅhreadÅest...\n");
 
-160 
+169 
 	`thªadfun
 (2);
 
-161 
+170 
 	`k¥ötf
 ("\nTest finished.\n");
 
-164 
+171 
+	`lock_de°roy
+(
+éock
+);
+
+174 
 	}
 }
 
-166 
+176 
 	$ã°3
 (
 «rgs
@@ -65827,31 +65923,37 @@ t£m
 ¨gs
 )
 
-168 (Ë
+178 (Ë
 «rgs
 ;
 
-169 (Ë
+179 (Ë
 ¨gs
 ;
 
-171 
+181 
 	`öô_ôems
 ();
 
-172 
+182 
 	`k¥ötf
 ("Starting spinlockÅhreadÅest...\n");
 
-173 
+183 
 	`thªadfun
 (3);
 
-174 
+184 
 	`k¥ötf
 ("\nTest finished.\n");
 
-177 
+185 
+	`lock_de°roy
+(
+éock
+);
+
+189 
 	}
 }
 
@@ -96080,6 +96182,82 @@ RB_POWEROFF
 );
 
 11 
+	}
+}
+
+	@user/my-testbin/stubtest/stubtest.c
+
+4 
+	~<uni°d.h
+>
+
+5 
+	~<°dio.h
+>
+
+8 
+	$maö
+()
+
+10 
+	`¥ötf
+("Beginning stubtest\n");
+
+11 
+pid_t
+ 
+°©us
+;
+
+12 
+pid_t
+ 
+pid
+ = 
+	`gëpid
+();
+
+13 
+	`¥ötf
+("pid is: %d\n", 
+pid
+);
+
+14 
+pid_t
+ 
+wpid
+ = 
+	`waôpid
+(
+pid
+, &
+°©us
+, 0);
+
+15 
+	`¥ötf
+("waôpid: %d\n", 
+wpid
+);
+
+17 
+pid
+ = 
+	`f‹k
+();
+
+18 
+	`¥ötf
+("pid: %d\n", 
+pid
+);
+
+21 
+	`_exô
+(1);
+
+23 
 	}
 }
 
@@ -140433,8 +140611,8 @@ i
 1
 .
 0
-532
-14991
+533
+15027
 build/install/hostinclude/hostcompat.h
 build/install/include/assert.h
 build/install/include/err.h
@@ -140842,6 +141020,7 @@ user/lib/libc/unix/err.c
 user/lib/libc/unix/errno.c
 user/lib/libc/unix/getcwd.c
 user/my-testbin/example/example.c
+user/my-testbin/stubtest/stubtest.c
 user/sbin/dumpsfs/dumpsfs.c
 user/sbin/halt/halt.c
 user/sbin/mksfs/disk.c

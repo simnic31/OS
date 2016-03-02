@@ -14,6 +14,13 @@ static struct semaphore *tsem = NULL;
 //static struct semaphore *tsem2 = NULL;
 static struct lock* tlock = NULL;
 
+static
+void
+cleanitems(void)
+{
+	sem_destroy(tsem);
+	lock_destroy(tlock);
+}
 
 static
 void
@@ -77,7 +84,7 @@ int threadfun(int type)
 	for (i=0; i<12; i++) {
 		P(tsem);
 	}
-	
+	cleanitems();
 	kprintf("%d", counter);
 	counter = counter -9;
 	counter = counter + '0';
@@ -118,6 +125,7 @@ lockCounter(void *junk, unsigned long num)
 		
 	}
 	V(tsem);
+	thread_exit();
 }
 
 void
@@ -146,6 +154,7 @@ int test1(int nargs, char **args)
 	kprintf("Starting unsafe thread test...\n");
 	threadfun(1);
 	kprintf("\nTest finished.\n");
+	sem_destroy(tsem);
 
 	return 0;
 }
@@ -159,6 +168,7 @@ int test2(int nargs, char **args)
 	 kprintf("Starting locked thread test...\n");
 	 threadfun(2);
 	 kprintf("\nTest finished.\n");
+	 lock_destroy(tlock);
 
 	 return 0;
 }
@@ -172,6 +182,8 @@ int test3(int nargs, char **args)
 	kprintf("Starting spinlock thread test...\n");
 	threadfun(3);
 	kprintf("\nTest finished.\n");
+	lock_destroy(tlock);
+	//lock_destroy(&tlock->lk_spinlock);
 
 	return 0;
 }
